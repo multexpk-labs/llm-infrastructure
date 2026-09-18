@@ -1,0 +1,16 @@
+[Unit]
+Description=Example LLM Inference Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=llm
+Group=llm
+WorkingDirectory=/opt/llm
+ExecStart=/opt/llm/bin/server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
